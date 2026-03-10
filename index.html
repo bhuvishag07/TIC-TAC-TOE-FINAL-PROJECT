@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tic Tac Toe Arena | Ultimate Game Platform</title>
+  <meta name="description" content="Play Tic Tac Toe, track your scores on the leaderboard, earn badges, and discuss strategies in our community forum. The ultimate Tic Tac Toe platform." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-dark" id="app-body">
+
+  <!-- Animated Background Particles -->
+  <div class="bg-particles" id="bg-particles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <div class="brand-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M4 4h8v8H4zM20 4h8v8h-8zM4 20h8v8H4zM20 20h8v8h-8z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <line x1="8" y1="4" x2="8" y2="28" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <line x1="24" y1="4" x2="24" y2="28" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <line x1="4" y1="8" x2="28" y2="8" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <line x1="4" y1="24" x2="28" y2="24" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+          </svg>
+        </div>
+        <span class="brand-name">TTT <span class="brand-highlight">Arena</span></span>
+      </div>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#" class="nav-link active" data-section="home" id="nav-home" onclick="showSection('home')">🏠 Home</a>
+        <a href="#" class="nav-link" data-section="play" id="nav-play" onclick="showSection('play')">🎮 Play</a>
+        <a href="#" class="nav-link" data-section="leaderboard" id="nav-leaderboard" onclick="showSection('leaderboard')">🏆 Leaderboard</a>
+        <a href="#" class="nav-link" data-section="forum" id="nav-forum" onclick="showSection('forum')">💬 Forum</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Switch Theme">
+          <span id="theme-icon">🌙</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HOME SECTION ===== -->
+  <section class="section active" id="section-home">
+    <div class="hero">
+      <div class="hero-badge">🎮 Version 2.0 — Now Live</div>
+      <h1 class="hero-title">
+        Welcome to<br>
+        <span class="gradient-text">TTT Arena</span>
+      </h1>
+      <p class="hero-subtitle">
+        The ultimate Tic Tac Toe experience. Play head-to-head, climb the leaderboard,
+        earn exclusive badges, and join the community forum.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="showSection('play')">
+          ⚡ Start Playing
+        </button>
+        <button class="btn btn-outline btn-lg" onclick="showSection('leaderboard')">
+          🏆 View Leaderboard
+        </button>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-number" id="stat-games">0</div>
+          <div class="stat-label">Games Played</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-players">2</div>
+          <div class="stat-label">Active Players</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-posts">0</div>
+          <div class="stat-label">Forum Posts</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="features-section">
+      <h2 class="section-title">Why TTT Arena?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Lightning Fast</h3>
+          <p>Instant win detection with smooth animations and zero loading times.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <h3>Live Leaderboard</h3>
+          <p>Real-time score tracking with persistent rankings saved across sessions.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎖️</div>
+          <h3>Badge System</h3>
+          <p>Earn exclusive badges and ranks as you win more games and progress.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Community Forum</h3>
+          <p>Share strategies, discuss tactics, and connect with other players.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Premium Themes</h3>
+          <p>Switch between Dark and Neon UI modes for a personalized experience.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Fully Responsive</h3>
+          <p>Play on any device — desktop, tablet, or mobile with full touch support.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Badge Preview Section -->
+    <div class="badges-preview">
+      <h2 class="section-title">Earn Your Rank 🎖️</h2>
+      <div class="badges-grid">
+        <div class="badge-preview-card">
+          <div class="badge-icon badge-bronze">🥉</div>
+          <div class="badge-name">Rookie</div>
+          <div class="badge-req">1+ Wins</div>
+        </div>
+        <div class="badge-preview-card">
+          <div class="badge-icon badge-silver">🥈</div>
+          <div class="badge-name">Challenger</div>
+          <div class="badge-req">5+ Wins</div>
+        </div>
+        <div class="badge-preview-card">
+          <div class="badge-icon badge-gold">🥇</div>
+          <div class="badge-name">Champion</div>
+          <div class="badge-req">10+ Wins</div>
+        </div>
+        <div class="badge-preview-card">
+          <div class="badge-icon badge-diamond">💎</div>
+          <div class="badge-name">Legend</div>
+          <div class="badge-req">20+ Wins</div>
+        </div>
+        <div class="badge-preview-card">
+          <div class="badge-icon badge-master">👑</div>
+          <div class="badge-name">Grand Master</div>
+          <div class="badge-req">50+ Wins</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLAY SECTION ===== -->
+  <section class="section" id="section-play">
+    <div class="play-container">
+
+      <!-- Player Setup -->
+      <div class="player-setup" id="player-setup">
+        <div class="setup-card">
+          <h2 class="setup-title">⚙️ Player Setup</h2>
+          <div class="player-inputs">
+            <div class="player-input-group">
+              <div class="player-color player-x-color">✖</div>
+              <div>
+                <label>Player X</label>
+                <input type="text" id="player-x-name" class="player-name-input" placeholder="Enter name..." maxlength="15" value="Player X" />
+              </div>
+            </div>
+            <div class="vs-divider">VS</div>
+            <div class="player-input-group">
+              <div class="player-color player-o-color">○</div>
+              <div>
+                <label>Player O</label>
+                <input type="text" id="player-o-name" class="player-name-input" placeholder="Enter name..." maxlength="15" value="Player O" />
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-full" id="start-game-btn" onclick="startGame()">🚀 Launch Game</button>
+        </div>
+      </div>
+
+      <!-- Game Arena -->
+      <div class="game-arena" id="game-arena" style="display:none;">
+
+        <!-- Score Display -->
+        <div class="score-bar">
+          <div class="score-player score-x" id="score-x-panel">
+            <div class="score-symbol">✖</div>
+            <div class="score-info">
+              <div class="score-player-name" id="score-x-name">Player X</div>
+              <div class="score-badge" id="badge-x">🥉 Rookie</div>
+            </div>
+            <div class="score-count" id="score-x">0</div>
+          </div>
+
+          <div class="score-center">
+            <div class="score-draws" id="score-draws">0</div>
+            <div class="score-draws-label">Draws</div>
+          </div>
+
+          <div class="score-player score-o" id="score-o-panel">
+            <div class="score-count" id="score-o">0</div>
+            <div class="score-info score-info-right">
+              <div class="score-player-name" id="score-o-name">Player O</div>
+              <div class="score-badge" id="badge-o">🥉 Rookie</div>
+            </div>
+            <div class="score-symbol">○</div>
+          </div>
+        </div>
+
+        <!-- Turn Indicator -->
+        <div class="turn-indicator" id="turn-indicator">
+          <div class="turn-pulse"></div>
+          <span id="turn-text">Player X's Turn</span>
+        </div>
+
+        <!-- Game Board -->
+        <div class="board-wrapper">
+          <div class="game-board" id="game-board">
+            <div class="cell" id="cell-0" onclick="makeMove(0)"></div>
+            <div class="cell" id="cell-1" onclick="makeMove(1)"></div>
+            <div class="cell" id="cell-2" onclick="makeMove(2)"></div>
+            <div class="cell" id="cell-3" onclick="makeMove(3)"></div>
+            <div class="cell" id="cell-4" onclick="makeMove(4)"></div>
+            <div class="cell" id="cell-5" onclick="makeMove(5)"></div>
+            <div class="cell" id="cell-6" onclick="makeMove(6)"></div>
+            <div class="cell" id="cell-7" onclick="makeMove(7)"></div>
+            <div class="cell" id="cell-8" onclick="makeMove(8)"></div>
+          </div>
+
+          <!-- Win Line SVG Overlay -->
+          <svg class="win-line-svg" id="win-line-svg" viewBox="0 0 300 300">
+            <line id="win-line" x1="0" y1="0" x2="0" y2="0" stroke="var(--win-line-color)" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <!-- Game Controls -->
+        <div class="game-controls">
+          <button class="btn btn-secondary" onclick="restartGame()">🔄 New Round</button>
+          <button class="btn btn-outline" onclick="resetAll()">🗑️ Reset All</button>
+          <button class="btn btn-ghost" onclick="showSection('play'); resetSetup()">👤 Change Players</button>
+        </div>
+
+        <!-- Recent Result -->
+        <div class="result-banner" id="result-banner" style="display:none;">
+          <div class="result-message" id="result-message"></div>
+          <div class="result-sub" id="result-sub"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEADERBOARD SECTION ===== -->
+  <section class="section" id="section-leaderboard">
+    <div class="leaderboard-container">
+      <div class="leaderboard-header">
+        <h1 class="page-title">🏆 Leaderboard</h1>
+        <p class="page-subtitle">Top players ranked by wins. Earn your spot at the top!</p>
+        <button class="btn btn-outline btn-sm" onclick="clearLeaderboard()">🗑️ Clear Board</button>
+      </div>
+
+      <!-- Top 3 Podium -->
+      <div class="podium" id="podium">
+        <!-- Filled by JS -->
+      </div>
+
+      <!-- Full Table -->
+      <div class="leaderboard-table-wrapper">
+        <table class="leaderboard-table" id="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>Badge</th>
+              <th>Wins</th>
+              <th>Losses</th>
+              <th>Draws</th>
+              <th>Win Rate</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+            <tr><td colspan="7" class="empty-state">No games played yet. <a href="#" onclick="showSection('play')">Start playing!</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FORUM SECTION ===== -->
+  <section class="section" id="section-forum">
+    <div class="forum-container">
+      <div class="forum-header">
+        <h1 class="page-title">💬 Community Forum</h1>
+        <p class="page-subtitle">Share strategies, tips, and connect with the community.</p>
+      </div>
+
+      <!-- New Post Composer -->
+      <div class="post-composer">
+        <div class="composer-header">
+          <div class="composer-avatar" id="composer-avatar">👤</div>
+          <div class="composer-info">
+            <span class="composer-name" id="composer-name">Anonymous</span>
+            <span class="composer-hint">What's on your mind?</span>
+          </div>
+        </div>
+        <input type="text" id="forum-post-title" class="forum-input" placeholder="Post title (e.g. Best opening strategy...)" maxlength="80" />
+        <textarea id="forum-post-content" class="forum-textarea" placeholder="Share your thoughts, strategies, or feedback..." rows="4" maxlength="500"></textarea>
+        <div class="composer-footer">
+          <div class="char-counter"><span id="char-count">0</span>/500</div>
+          <div class="composer-tags">
+            <select id="forum-tag" class="forum-select">
+              <option value="💡 Strategy">💡 Strategy</option>
+              <option value="🐛 Bug Report">🐛 Bug Report</option>
+              <option value="🎉 Celebration">🎉 Celebration</option>
+              <option value="❓ Question">❓ Question</option>
+              <option value="💬 General">💬 General</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" onclick="postForum()">📨 Post</button>
+        </div>
+      </div>
+
+      <!-- Forum Filter -->
+      <div class="forum-filters">
+        <button class="filter-btn active" onclick="filterForum('all', this)">All Posts</button>
+        <button class="filter-btn" onclick="filterForum('💡 Strategy', this)">💡 Strategy</button>
+        <button class="filter-btn" onclick="filterForum('🎉 Celebration', this)">🎉 Wins</button>
+        <button class="filter-btn" onclick="filterForum('❓ Question', this)">❓ Questions</button>
+        <button class="filter-btn" onclick="filterForum('💬 General', this)">💬 General</button>
+      </div>
+
+      <!-- Forum Posts -->
+      <div class="forum-posts" id="forum-posts">
+        <div class="empty-forum" id="empty-forum">
+          <div class="empty-icon">🗨️</div>
+          <h3>No posts yet!</h3>
+          <p>Be the first to share your strategy or thoughts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WINNER MODAL ===== -->
+  <div class="modal-overlay" id="winner-modal" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-confetti" id="modal-confetti"></div>
+      <div class="modal-trophy" id="modal-trophy">🏆</div>
+      <h2 class="modal-title" id="modal-title">Winner!</h2>
+      <p class="modal-message" id="modal-message">Congratulations!</p>
+      <div class="modal-badge" id="modal-badge"></div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="closeModal(); restartGame()">🔄 Play Again</button>
+        <button class="btn btn-outline" onclick="closeModal(); showSection('leaderboard')">🏆 Leaderboard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
