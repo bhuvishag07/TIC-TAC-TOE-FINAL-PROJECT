@@ -71,10 +71,14 @@ Real-time character counter
 🧰 Technology Stack
 Technology	Purpose
 
-HTML5:           	Structure of the application
-CSS3:            	Styling, animations, and responsive layout
-JavaScript:        (ES6)	Game logic, leaderboard, forum interactions
-LocalStorage API:   	Storing scores, posts, and theme settings
+HTML5:                        Structure of the application
+
+CSS3:                         	Styling, animations, and responsive layout
+
+JavaScript:                     (ES6)	Game logic, leaderboard, forum interactions
+
+LocalStorage API:              	Storing scores, posts, and theme settings
+
 🧠 How the Game Works
 
 The game uses a 9-cell board array representing the Tic Tac Toe grid.
