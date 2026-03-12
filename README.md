@@ -10,10 +10,7 @@ The application is built entirely using HTML, CSS, and JavaScript, and runs dire
 
 https://bhuvishag07.github.io/TIC-TAC-TOE-FINAL-PROJECT/
 
-🔗 Live Project:
-Add your deployed project link here
 
-No installation or setup is required.
 
 ✨ Features
 
